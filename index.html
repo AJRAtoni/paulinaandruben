@@ -758,7 +758,7 @@
             <!-- El atributo 'name' es necesario para guardar los datos correctamente -->
             <input type="text" name="First Name" id="rsvpFirstName" placeholder="First Name" required>
             <input type="text" name="Last Name" id="rsvpLastName" placeholder="Last Name" required>
-            <button type="submit" class="btn-primary">Find Your Invitation</button>
+            <button type="submit" class="btn-primary">SEND</button>
         </form>
     </section>
 
@@ -1124,17 +1124,7 @@ END:VCALENDAR`;
             const last = document.getElementById('rsvpLastName').value.trim();
 
             if (first && last) {
-                // ¡IMPORTANTE! Reemplaza "TU_ID_AQUI" con tu ID de Formspree
-                // Ejemplo: const FORMSPREE_ID = "xabjkwqw";
                 const FORMSPREE_ID = "meerproa";
-
-                if (FORMSPREE_ID === "meerproa") {
-                    // Si aún no has puesto tu ID, mostramos un mensaje de prueba
-                    alert(`(MODO PRUEBA) ¡Gracias, ${first} ${last}! Tu RSVP ha sido recibido.
-Para que los datos se guarden de verdad, debes poner tu ID de Formspree en el código.`);
-                    rsvpForm.reset();
-                    return;
-                }
 
                 try {
                     const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
