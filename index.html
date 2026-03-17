@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paulina & Ruben — June 6, 2026 · Tangier, Morocco</title>
+    <meta name="description"
+        content="The wedding website of Paulina Cuevas and Ruben Moreno. June 6, 2026 — Tangier, Morocco.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Lovers in New York';
+            src: url('Lovers in New York.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* ===== RESET & BASE ===== */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background-color: rgb(245, 239, 232);
+            color: rgb(92, 23, 69);
+            min-height: 100vh;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== NAVIGATION (STICKY) ===== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: rgba(245, 239, 232, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(92, 23, 69, 0.08);
+            transition: box-shadow 0.3s ease;
+        }
+
+        header.scrolled {
+            box-shadow: 0 2px 20px rgba(92, 23, 69, 0.06);
+        }
+
+        .header-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 30px;
+        }
+
+        .header-logo {
+            font-family: 'Lovers in New York', cursive;
+            font-size: 22px;
+            font-weight: 700;
+            color: rgb(92, 23, 69);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: rgb(92, 23, 69);
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            transition: opacity 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: rgb(92, 23, 69);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            opacity: 0.75;
+        }
+
+        /* Mobile menu toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            color: rgb(92, 23, 69);
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            margin: 5px 0;
+            background-color: rgb(92, 23, 69);
+            transition: all 0.3s ease;
+        }
+
+        /* ===== SECTION BASE ===== */
+        section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 42px;
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            text-align: center;
+            color: rgb(92, 23, 69);
+        }
+
+        .divider {
+            width: 60px;
+            height: 1px;
+            background-color: rgba(92, 23, 69, 0.3);
+            margin: 0 auto 50px;
+        }
+
+        .section-divider {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(92, 23, 69, 0.15), transparent);
+        }
+
+        /* ===== HERO / HOME ===== */
+        #home {
+            text-align: center;
+            padding: 100px 40px 80px;
+            min-height: calc(100vh - 60px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .monogram {
+            margin-bottom: 50px;
+            animation: fadeInDown 1s ease 0.2s both;
+        }
+
+        .monogram img {
+            width: 140px;
+            height: auto;
+            max-width: 100%;
+            filter: drop-shadow(0 2px 8px rgba(92, 23, 69, 0.08));
+        }
+
+        .hero-names {
+            font-family: 'Lovers in New York', cursive;
+            font-size: 52px;
+            font-weight: 400;
+            color: rgb(92, 23, 69);
+            padding: 15px 20px 20px;
+            margin-bottom: 45px;
+            line-height: 3;
+            letter-spacing: 1px;
+            overflow: visible;
+            -webkit-text-size-adjust: 100%;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .hero-date {
+            font-family: 'Lovers in New York', cursive;
+            font-size: 34px;
+            font-weight: 400;
+            color: rgb(92, 23, 69);
+            line-height: 3;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .hero-location {
+            font-family: 'Lovers in New York', cursive;
+            font-size: 26px;
+            font-weight: 400;
+            color: rgb(92, 23, 69);
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+            animation: fadeInUp 1s ease 0.7s both;
+        }
+
+        .countdown {
+            font-size: 18px;
+            color: rgb(92, 23, 69);
+            margin-bottom: 40px;
+            letter-spacing: 0.5px;
+            font-weight: 400;
+            animation: fadeInUp 1s ease 0.8s both;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn-primary {
+            display: inline-block;
+            background-color: rgb(92, 23, 69);
+            color: rgb(245, 239, 232);
+            border: none;
+            padding: 14px 60px;
+            font-size: 14px;
+            font-family: 'Cormorant Garamond', serif;
+            cursor: pointer;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            animation: fadeInUp 1s ease 1s both;
+        }
+
+        .btn-primary:hover {
+            background-color: rgb(72, 15, 53);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(92, 23, 69, 0.2);
+        }
+
+        .btn-calendar {
+            display: inline-block;
+            background-color: rgb(92, 23, 69);
+            color: rgb(245, 239, 232);
+            border: none;
+            padding: 10px 24px;
+            font-size: 16px;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-calendar:hover {
+            background-color: rgb(72, 15, 53);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(92, 23, 69, 0.2);
+        }
+
+        /* ===== RSVP SECTION ===== */
+        #rsvp {
+            text-align: center;
+        }
+
+        .rsvp-description {
+            font-size: 20px;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-weight: 400;
+            color: rgba(92, 23, 69, 0.85);
+        }
+
+        .rsvp-form {
+            max-width: 480px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .rsvp-form input {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            padding: 14px 20px;
+            border: 1px solid rgba(92, 23, 69, 0.2);
+            background: rgba(255, 255, 255, 0.5);
+            color: rgb(92, 23, 69);
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .rsvp-form input::placeholder {
+            color: rgba(92, 23, 69, 0.4);
+        }
+
+        .rsvp-form input:focus {
+            border-color: rgb(92, 23, 69);
+            box-shadow: 0 0 0 3px rgba(92, 23, 69, 0.06);
+        }
+
+        .rsvp-form .btn-primary {
+            animation: none;
+            align-self: center;
+        }
+
+        /* ===== ITINERARY SECTION ===== */
+        #itinerary {
+            text-align: center;
+        }
+
+        .day-group {
+            margin-bottom: 55px;
+        }
+
+        .day-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .day-date {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            color: rgb(92, 23, 69);
+        }
+
+        .event-card {
+            background: rgba(255, 255, 255, 0.45);
+            border: 1px solid rgba(92, 23, 69, 0.08);
+            padding: 30px 35px;
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .event-card:hover {
+            background: rgba(255, 255, 255, 0.7);
+            border-color: rgba(92, 23, 69, 0.15);
+            box-shadow: 0 4px 20px rgba(92, 23, 69, 0.05);
+        }
+
+        .event-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: rgb(92, 23, 69);
+        }
+
+        .event-time {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+            color: rgba(92, 23, 69, 0.75);
+        }
+
+        .event-location {
+            font-size: 15px;
+            color: rgba(92, 23, 69, 0.65);
+            margin-bottom: 10px;
+        }
+
+        .event-location a {
+            color: rgba(92, 23, 69, 0.65);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: color 0.3s ease;
+        }
+
+        .event-location a:hover {
+            color: rgb(92, 23, 69);
+        }
+
+        .event-note {
+            font-style: italic;
+            font-size: 16px;
+            color: rgba(92, 23, 69, 0.7);
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+
+        .event-tag {
+            display: inline-block;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            padding: 5px 14px;
+            background: rgba(92, 23, 69, 0.08);
+            color: rgb(92, 23, 69);
+            margin-top: 12px;
+        }
+
+        /* ===== ACCOMMODATIONS SECTION ===== */
+        #accommodations {
+            text-align: center;
+        }
+
+        .hotels-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .hotel-card {
+            background: rgba(255, 255, 255, 0.45);
+            border: 1px solid rgba(92, 23, 69, 0.08);
+            padding: 40px 10px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hotel-card:hover {
+            background: rgba(255, 255, 255, 0.7);
+            border-color: rgba(92, 23, 69, 0.15);
+            box-shadow: 0 6px 25px rgba(92, 23, 69, 0.06);
+            transform: translateY(-3px);
+        }
+
+        .hotel-icon {
+            font-size: 28px;
+            margin-bottom: 18px;
+            opacity: 0.6;
+        }
+
+        .hotel-label {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
+            opacity: 0.6;
+            margin-bottom: 10px;
+        }
+
+        .hotel-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: rgb(92, 23, 69);
+            line-height: 1.3;
+        }
+
+        .hotel-address {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
+            opacity: 0.6;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* ===== FAQ SECTION ===== */
+        #faqs {
+            text-align: center;
+        }
+
+        .faq-list {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(92, 23, 69, 0.1);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 600;
+            padding: 24px 40px 24px 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: rgb(92, 23, 69);
+            transition: opacity 0.3s ease;
+            user-select: none;
+            position: relative;
+        }
+
+        .faq-question:hover {
+            opacity: 0.75;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 24px;
+            font-weight: 300;
+            position: absolute;
+            right: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.open .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 600px;
+            padding-bottom: 24px;
+        }
+
+        .faq-answer-inner {
+            font-size: 17px;
+            line-height: 1.8;
+            color: rgba(92, 23, 69, 0.78);
+            padding-right: 40px;
+        }
+
+        .faq-answer-inner a {
+            color: rgb(92, 23, 69);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 40px 30px;
+            border-top: 1px solid rgba(92, 23, 69, 0.08);
+        }
+
+        .footer-names {
+            font-family: 'Lovers in New York', cursive;
+            font-size: 28px;
+            font-weight: 700;
+            color: rgb(92, 23, 69);
+            margin-bottom: 10px;
+        }
+
+        .footer-date {
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 400;
+            color: rgba(92, 23, 69, 0.5);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll-based fade-in */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            html {
+                scroll-padding-top: 70px;
+            }
+
+            .header-inner {
+                padding: 12px 20px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: rgba(245, 239, 232, 0.98);
+                backdrop-filter: blur(12px);
+                flex-direction: column;
+                padding: 20px 30px 30px;
+                gap: 18px;
+                border-bottom: 1px solid rgba(92, 23, 69, 0.08);
+            }
+
+            nav.open {
+                display: flex;
+            }
+
+            section {
+                padding: 60px 24px;
+            }
+
+            #home {
+                padding: 80px 24px 60px;
+                min-height: auto;
+            }
+
+            .hero-names {
+                font-size: 36px;
+            }
+
+            .hero-date {
+                font-size: 26px;
+            }
+
+            .hero-location {
+                font-size: 20px;
+            }
+
+            .section-title {
+                font-size: 32px;
+                letter-spacing: 3px;
+            }
+
+            .monogram img {
+                width: 100px;
+            }
+
+
+
+            .hotels-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .event-card {
+                padding: 24px 20px;
+            }
+
+            .faq-question {
+                font-size: 19px;
+                padding: 20px 35px 20px 0;
+            }
+
+            .faq-answer-inner {
+                font-size: 16px;
+                padding-right: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-names {
+                font-size: 28px;
+            }
+
+            .btn-primary {
+                padding: 12px 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ===== HEADER / NAVIGATION ===== -->
+    <header id="header">
+        <div class="header-inner">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="mainNav">
+                <a href="#home">Home</a>
+                <a href="#rsvp">RSVP</a>
+                <a href="#itinerary">Itinerary</a>
+                <a href="#accommodations">Accommodations</a>
+                <a href="#faqs">FAQs</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== HOME ===== -->
+    <section id="home">
+        <div class="monogram">
+            <img src="PR.png" alt="Monograma PR">
+        </div>
+        <div class="hero-names">Paulina + Ruben</div>
+        <div class="hero-date">June 6, 2026</div>
+        <div class="hero-location">Tangier, Morocco</div>
+        <div class="countdown" id="countdown">
+            <!-- Countdown loads here -->
+        </div>
+        <a href="#rsvp" class="btn-primary">RSVP</a>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ===== RSVP ===== -->
+    <section id="rsvp" class="fade-in">
+        <h2 class="section-title">RSVP</h2>
+        <div class="divider"></div>
+        <p class="rsvp-description">
+            Please enter the first and last name of one member of your party below.
+            If you're responding for you and a guest (or your family), you'll be able to
+            RSVP for your entire group on the next page.
+        </p>
+        <form class="rsvp-form" onsubmit="handleRSVP(event)">
+            <input type="text" id="rsvpFirstName" placeholder="First Name" required>
+            <input type="text" id="rsvpLastName" placeholder="Last Name" required>
+            <button type="submit" class="btn-primary">Find Your Invitation</button>
+        </form>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ===== ITINERARY ===== -->
+    <section id="itinerary" class="fade-in">
+        <h2 class="section-title">Itinerary</h2>
+        <div class="divider"></div>
+
+        <!-- Friday -->
+        <div class="day-group">
+            <div class="day-date">Friday, June 5, 2026</div>
+            <div class="event-card">
+                <div class="event-name">Welcome to Morocco</div>
+                <div class="event-time">6:30 PM — 11:45 PM</div>
+                <p class="event-note">Please join us in the Welcome to Morocco dinner where you can expect typical food
+                    and entertainment in the center of the Casbah.</p>
+                <div style="margin-bottom: 15px;">
+                    <span class="event-tag">Kaftans encouraged!</span>
+                </div>
+                <a href="#" class="btn-calendar"
+                    onclick="downloadICS('Welcome to Morocco', 'Welcome to Morocco dinner where you can expect typical food and entertainment in the center of the Casbah.', 'Casbah, Tangier', '20260605T183000', '20260605T234500'); return false;">Add
+                    to calendar</a>
+            </div>
+        </div>
+
+        <!-- Saturday -->
+        <div class="day-group">
+            <div class="day-date">Saturday, June 6, 2026</div>
+
+            <div class="event-card">
+                <div class="event-name">Villa Josephine Brunch</div>
+                <div class="event-time">12:00 PM — 3:00 PM</div>
+                <div class="event-location">Villa Josephine Hotel</div>
+                <a href="https://www.google.com/maps/search/?api=1&query=42.30206470,-70.90783460&query_place_id=ChIJcc-mjOFl44kRu7ipItTGkxY"
+                    class="btn-calendar">Map</a>
+                <a href="#" class="btn-calendar"
+                    onclick="downloadICS('Villa Josephine Brunch', '', 'Villa Josephine Hotel, Tangier', '20260606T120000', '20260606T150000'); return false;">Add
+                    to calendar</a>
+            </div>
+
+            <div class="event-card">
+                <div class="event-name">Chapel</div>
+                <div class="event-time">5:00 PM — 6:00 PM</div>
+                <div class="event-location">St Andrews Church, Tangier</div>
+                <a href="https://www.google.com/maps/search/?api=1&query=35.75946510,-5.83395430&query_place_id=ChIJLRNM8FyHCw0ReuG0v3HFv3Y"
+                    class="btn-calendar">Map</a>
+                <a href="#" class="btn-calendar"
+                    onclick="downloadICS('Chapel', '', 'St Andrews Church, Tangier', '20260606T170000', '20260606T180000'); return false;">Add
+                    to calendar</a>
+            </div>
+
+            <div class="event-card">
+                <div class="event-name">Reception by the Water</div>
+                <div class="event-time">6:00 PM — 11:45 PM</div>
+                <div class="event-location">Rue Sidi Mesmoudi</div>
+                <a href="https://www.google.com/maps/search/?api=1&query=42.30206470,-70.90783460&query_place_id=ChIJcc-mjOFl44kRu7ipItTGkxY"
+                    class="btn-calendar">Map</a>
+                <a href="#" class="btn-calendar"
+                    onclick="downloadICS('Reception by the Water', '', 'Rue Sidi Mesmoudi, Tangier', '20260606T180000', '20260606T234500'); return false;">Add
+                    to calendar</a>
+            </div>
+        </div>
+
+        <!-- Sunday -->
+        <div class="day-group">
+            <div class="day-date">Sunday, June 7, 2026</div>
+            <div class="event-card">
+                <div class="event-name">Lunch by the Beach</div>
+                <div class="event-time">12:00 PM — 5:00 PM</div>
+                <div class="event-location">L'Ocean, Tangier</div>
+                <p class="event-note">Think camels at the beach and sunset drinks by the water.</p>
+                <div style="margin-bottom: 15px;">
+                    <span class="event-tag">Casual Attire</span>
+                </div>
+                <a href="https://www.google.com/maps/search/?api=1&query=35.75946510,-5.83395430&query_place_id=ChIJLRNM8FyHCw0ReuG0v3HFv3Y"
+                    class="btn-calendar">Map</a>
+                <a href="#" class="btn-calendar"
+                    onclick="downloadICS('Lunch by the Beach', 'Think camels at the beach and sunset drinks by the water.', 'L\'Ocean, Tangier', '20260607T120000', '20260607T170000'); return false;">Add
+                    to calendar</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ===== ACCOMMODATIONS ===== -->
+    <section id="accommodations" class="fade-in">
+        <h2 class="section-title">Accommodations</h2>
+        <div class="divider"></div>
+
+        <div class="hotels-grid">
+            <div class="hotel-card">
+                <div class="hotel-icon">🏨</div>
+                <div class="hotel-label">Hotel</div>
+                <div class="hotel-name">Fairmont Tazi Palace Tangier</div>
+                <div class="hotel-address">Palais Tazi Ksar Al Mandoub, Jamaa Mokrae, Tangier, 90000, Morocco +212 5 39
+                    37 89 89
+                </div>
+            </div>
+            <div class="hotel-card">
+                <div class="hotel-icon">🏨</div>
+                <div class="hotel-label">Hotel</div>
+                <div class="hotel-name">Villa Mabrouka</div>
+                <div class="hotel-address">1 Sidi Bouknadel, Tanger, Tanger-Tétouan-Al Hoceima 90000, Morocco
+                    +2120666600488</div>
+            </div>
+            <div class="hotel-card">
+                <div class="hotel-icon">🏨</div>
+                <div class="hotel-label">Hotel</div>
+                <div class="hotel-name">El Minzah Hotel</div>
+                <div class="hotel-address">85, Rue De La Liberte, Tangier, 90000, Morocco (833) 314-8302</div>
+            </div>
+        </div>
+
+        <div class="travel-planner"
+            style="margin-top: 50px; max-width: 600px; margin-left: auto; margin-right: auto; text-align: center; font-size: 18px; line-height: 1.8; color: rgba(92, 23, 69, 0.85);">
+            <p>To make your travel planning as easy as possible, we are pleased to recommend our travel planner,
+                <strong>Ana Reguero</strong>. She will be happy to assist you with flights, accommodations, and other
+                travel arrangements for the celebration.
+            </p>
+            <p style="margin-top: 24px;">
+                Contact Ana directly:<br>
+                📧 <a href="mailto:ana@perfectaltitude.com"
+                    style="color: rgb(92, 23, 69); text-decoration: underline; text-underline-offset: 3px;">ana@perfectaltitude.com</a><br>
+                📞 <a href="tel:+17872104114" style="color: rgb(92, 23, 69); text-decoration: none;">+1 (787)
+                    210-4114</a>
+            </p>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ===== FAQs ===== -->
+    <section id="faqs" class="fade-in">
+        <h2 class="section-title">FAQs</h2>
+        <div class="divider"></div>
+
+        <div class="faq-list">
+            <div class="faq-item" id="faq-1">
+                <div class="faq-question" onclick="toggleFaq('faq-1')">
+                    Do I need a visa to visit Morocco?
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        US, EU, and UK passport holders can enter Morocco visa-free for up to 90 days.
+                        Please check the requirements for your specific nationality well in advance.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" id="faq-2">
+                <div class="faq-question" onclick="toggleFaq('faq-2')">
+                    How can I get there?
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        There are a few ways to reach Tangier — by plane, train, or ferry!<br><br>
+                        <strong>By air:</strong> From Puerto Rico and Miami, the most direct route is through Madrid.
+                        From NYC, there are more options, especially to Casablanca.<br><br>
+                        <strong>By train:</strong> If you fly into Casablanca, a high-speed train will get you to
+                        Tangier
+                        in about 2 hours. Economy seats start around $36 and First Class around $46.<br><br>
+                        <strong>By ferry:</strong> If you fly into Málaga, you can drive (or hire a driver) to Tarifa
+                        and
+                        catch a ferry to Tangier. Ferries run daily, take about 1 hour, and cost approximately €40.
+                        You can book here: <a href="https://clickferry.com" target="_blank">clickferry.com</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" id="faq-3">
+                <div class="faq-question" onclick="toggleFaq('faq-3')">
+                    When should I arrive?
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        The first official event is the Welcome Party on Friday at 6 PM, so plan to arrive by then!
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" id="faq-4">
+                <div class="faq-question" onclick="toggleFaq('faq-4')">
+                    Is there a room block?
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Yes! We have reserved rooms at a discounted rate at the Fairmont. Details will be included
+                        with your invitation — we recommend booking early, as June is a lovely time to visit
+                        Tangier.<br><br>
+                        To make planning easier, we're happy to recommend our travel planner, <strong>Ana
+                            Reguero</strong>,
+                        who can help with flights, accommodations, and all the details.<br>
+                        📧 <a href="mailto:ana@perfectaltitude.com">ana@perfectaltitude.com</a> · 📞 +1 (787) 210-4114
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" id="faq-5">
+                <div class="faq-question" onclick="toggleFaq('faq-5')">
+                    What should I wear?
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <strong>Friday, Welcome Party:</strong> Kaftan encouraged — embrace the spirit of Tangier!<br>
+                        <strong>Saturday, Wedding:</strong> Tangier Chic Formal — dress to impress, but prioritize
+                        comfort, especially with footwear.<br>
+                        <strong>Sunday, Brunch:</strong> Beach casual.<br><br>
+                        June evenings can be breezy, so a light layer is always a good idea.<br><br>
+                        🕌 <em>A note on local culture:</em> Tangier is one of Morocco's most cosmopolitan cities.
+                        When exploring the medina and markets, lightweight fabrics like linen and cotton are ideal for
+                        June.
+                        Maxi dresses, flowy pants, and loose tops all work beautifully. Swimwear is great at hotel pools
+                        and beaches — just toss on a cover-up when heading into town. A light scarf is a great idea for
+                        the afternoon when it gets a bit chillier.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" id="faq-6">
+                <div class="faq-question" onclick="toggleFaq('faq-6')">
+                    Where can I find a kaftan in Tangier?
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        There are many stores in the markets but here are some of our favorites:<br><br>
+
+                        <strong>Las Chicas</strong><br>
+                        Place du Tabor, Tangier · +212 5393-74510<br>
+                        <a href="https://laschicastanger.tumblr.com/"
+                            target="_blank">laschicastanger.tumblr.com</a><br><br>
+
+                        <strong>Laure Welfling</strong><br>
+                        A French designer's vibrant boutique with richly embroidered silk kaftans, all hand-sewn by
+                        Tangier's finest tailors.<br>
+                        3 Place de la Kasbah, Tangier · +212 5399-49789<br>
+                        <a href="https://laurewelfling.com" target="_blank">laurewelfling.com</a><br><br>
+
+                        <strong>Au Fil de Tanger</strong><br>
+                        A charming workshop and showroom with handmade kaftans, accessories, and homeware — each piece
+                        crafted on-site.<br>
+                        Place de la Kasbah, Tangier · +212 610-677213<br><br>
+
+                        <strong>Kasbah Collective</strong><br>
+                        A beautifully curated boutique showcasing new-generation Tanjawi crafts — clothing, accessories,
+                        and design pieces from young local artisans.<br>
+                        30 Rue Kacem Guennoun, Tangier · +212 5393-72122<br>
+                        <a href="https://kasbahcollective.com" target="_blank">kasbahcollective.com</a><br><br>
+
+                        <strong>Boutique Majid</strong><br>
+                        A treasure trove of textiles, kaftans, and unique Moroccan finds in the heart of the Ancien
+                        Medina.<br>
+                        66 Rue Almohades, Tangier · +212 661-192802<br>
+                        <a href="https://boutiquemajid.com" target="_blank">boutiquemajid.com</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" id="faq-7">
+                <div class="faq-question" onclick="toggleFaq('faq-7')">
+                    What do you mean 'Tangier Chic Formal?'
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Dress to impress, and have fun doing so. The idea is to get fancy but prioritize comfort,
+                        especially when it comes to footwear.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" id="faq-8">
+                <div class="faq-question" onclick="toggleFaq('faq-8')">
+                    Will transportation be provided between events?
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Yes! We will arrange transportation to and from all wedding events. Detailed logistics
+                        will be shared closer to the date.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" id="faq-9">
+                <div class="faq-question" onclick="toggleFaq('faq-9')">
+                    What about gifts?
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Your presence in Tangier is the greatest gift! 🎁
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-date">June 6, 2026 · Tangier, Morocco</div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script>
+        // ---- Countdown Timer ----
+        function updateCountdown() {
+            const targetDate = new Date('2026-06-06T00:00:00').getTime();
+
+            function tick() {
+                const now = new Date().getTime();
+                const diff = targetDate - now;
+
+                if (diff > 0) {
+                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                    document.getElementById('countdown').textContent =
+                        `${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`;
+                } else {
+                    document.getElementById('countdown').textContent = '¡The celebration has begun!';
+                }
+            }
+
+            tick();
+            setInterval(tick, 1000);
+        }
+
+        // ---- Add to Calendar ----
+        function downloadICS(title, description, location, start, end) {
+            const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Paulina & Ruben Wedding//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+SUMMARY:${title}
+DESCRIPTION:${description}
+LOCATION:${location}
+DTSTART:${start}
+DTEND:${end}
+END:VEVENT
+END:VCALENDAR`;
+
+            const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.setAttribute('download', `${title.replace(/\\s+/g, '_')}.ics`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // ---- RSVP Form ----
+        function handleRSVP(e) {
+            e.preventDefault();
+            const first = document.getElementById('rsvpFirstName').value.trim();
+            const last = document.getElementById('rsvpLastName').value.trim();
+            if (first && last) {
+                alert(`Thank you, ${first} ${last}! Your RSVP has been received. We look forward to celebrating with you in Tangier! 🇲🇦`);
+                document.getElementById('rsvpFirstName').value = '';
+                document.getElementById('rsvpLastName').value = '';
+            }
+        }
+
+        // ---- FAQ Accordion ----
+        function toggleFaq(id) {
+            const item = document.getElementById(id);
+            const wasOpen = item.classList.contains('open');
+
+            // Close all
+            document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+
+            // Toggle clicked
+            if (!wasOpen) {
+                item.classList.add('open');
+            }
+        }
+
+        // ---- Sticky Header Shadow ----
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 10) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // ---- Mobile Menu Toggle ----
+        document.getElementById('menuToggle').addEventListener('click', () => {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('open');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mainNav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mainNav').classList.remove('open');
+            });
+        });
+
+        // ---- Active Nav Link ----
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // ---- Scroll Fade-In ----
+        const fadeEls = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeEls.forEach(el => observer.observe(el));
+
+        // ---- Init ----
+        window.addEventListener('load', updateCountdown);
+    </script>
+</body>
+
+</html>
