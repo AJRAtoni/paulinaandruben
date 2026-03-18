@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSVP — Paulina & Ruben · Tangier, Morocco</title>
+    <meta name="description"
+        content="RSVP for Paulina & Ruben's wedding in Tangier, Morocco on June 6, 2026.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Lovers in New York';
+            src: url('Lovers in New York.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* ===== RESET & BASE ===== */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background-color: rgb(245, 239, 232);
+            color: rgb(92, 23, 69);
+            min-height: 100vh;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== NAVIGATION (STICKY) ===== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: rgba(245, 239, 232, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(92, 23, 69, 0.08);
+            transition: box-shadow 0.3s ease;
+        }
+
+        header.scrolled {
+            box-shadow: 0 2px 20px rgba(92, 23, 69, 0.06);
+        }
+
+        .header-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 30px;
+        }
+
+        .header-logo {
+            font-family: 'Lovers in New York', cursive;
+            font-size: 22px;
+            font-weight: 700;
+            color: rgb(92, 23, 69);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: rgb(92, 23, 69);
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            transition: opacity 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: rgb(92, 23, 69);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            opacity: 0.75;
+        }
+
+        /* Mobile menu toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            color: rgb(92, 23, 69);
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background-color: rgb(92, 23, 69);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 600px) {
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                left: 20px;
+            }
+
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: rgba(245, 239, 232, 0.98);
+                flex-direction: column;
+                padding: 20px;
+                gap: 16px;
+                border-bottom: 1px solid rgba(92, 23, 69, 0.08);
+                display: none;
+            }
+
+            nav.open {
+                display: flex;
+            }
+
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+        }
+
+        /* ===== SECTION DIVIDER ===== */
+        .section-divider {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(92, 23, 69, 0.15), transparent);
+        }
+
+        /* ===== HERO / HOME ===== */
+        #home {
+            text-align: center;
+            padding: 75px 40px 75px;
+            min-height: calc(100vh - 60px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: visible;
+        }
+
+        .monogram {
+            margin-bottom: 50px;
+            animation: fadeInDown 1s ease 0.2s both;
+        }
+
+        .monogram img {
+            width: 180px;
+            height: auto;
+            max-width: 100%;
+            filter: drop-shadow(0 2px 8px rgba(92, 23, 69, 0.08));
+        }
+
+        .hero-names {
+            font-family: 'Lovers in New York', cursive;
+            font-size: 52px;
+            font-weight: 400;
+            color: rgb(92, 23, 69);
+            padding: 15px 20px 20px;
+            margin-bottom: 45px;
+            line-height: 4;
+            letter-spacing: 1px;
+            overflow: visible;
+            -webkit-text-size-adjust: 100%;
+            animation: fadeInUp 1s ease 0.4s both;
+            transform: translateZ(0);
+        }
+
+        .hero-date {
+            font-family: 'Lovers in New York', cursive;
+            font-size: 34px;
+            font-weight: 400;
+            color: rgb(92, 23, 69);
+            line-height: 2;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .hero-location {
+            font-family: 'Lovers in New York', cursive;
+            font-size: 26px;
+            font-weight: 400;
+            line-height: 3;
+            color: rgb(92, 23, 69);
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+            animation: fadeInUp 1s ease 0.7s both;
+        }
+
+        .countdown {
+            font-size: 18px;
+            color: rgb(92, 23, 69);
+            margin-bottom: 40px;
+            letter-spacing: 0.5px;
+            font-weight: 400;
+            animation: fadeInUp 1s ease 0.8s both;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn-primary {
+            display: inline-block;
+            background-color: rgb(92, 23, 69);
+            color: rgb(245, 239, 232);
+            border: none;
+            padding: 14px 40px;
+            font-size: 16px;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            animation: fadeInUp 1s ease 1s both;
+        }
+
+        .btn-primary:hover {
+            background-color: rgb(72, 15, 53);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(92, 23, 69, 0.2);
+        }
+
+        .btn-calendar {
+            display: inline-block;
+            background-color: rgb(92, 23, 69);
+            color: rgb(245, 239, 232);
+            border: none;
+            padding: 10px 24px;
+            font-size: 16px;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-calendar:hover {
+            background-color: rgb(72, 15, 53);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(92, 23, 69, 0.2);
+        }
+
+        /* ===== SECTION TITLES ===== */
+        .section-title {
+            font-family: 'Lovers in New York', cursive;
+            font-size: 42px;
+            font-weight: 400;
+            color: rgb(92, 23, 69);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .divider {
+            width: 150px;
+            height: 1px;
+            background-color: rgba(92, 23, 69, 0.3);
+            margin: 0 auto 60px;
+        }
+
+        /* ===== RSVP SECTION ===== */
+        #rsvp {
+            text-align: center;
+            padding: 80px 40px;
+        }
+
+        .rsvp-description {
+            font-size: 20px;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-weight: 400;
+            color: rgba(92, 23, 69, 0.85);
+        }
+
+        .rsvp-form {
+            max-width: 480px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .rsvp-form input {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            padding: 14px 20px;
+            border: 1px solid rgba(92, 23, 69, 0.2);
+            background: rgba(255, 255, 255, 0.5);
+            color: rgb(92, 23, 69);
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .rsvp-form input::placeholder {
+            color: rgba(92, 23, 69, 0.4);
+        }
+
+        .rsvp-form input:focus {
+            border-color: rgb(92, 23, 69);
+            box-shadow: 0 0 0 3px rgba(92, 23, 69, 0.06);
+        }
+
+        .rsvp-form .btn-primary {
+            animation: none;
+            align-self: center;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll-based fade-in */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 32px;
+                letter-spacing: 3px;
+            }
+
+            .hero-names {
+                font-size: 36px;
+            }
+
+            .hero-date {
+                font-size: 26px;
+            }
+
+            .hero-location {
+                font-size: 20px;
+            }
+
+            .monogram img {
+                width: 140px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-names {
+                font-size: 28px;
+            }
+
+            .btn-primary {
+                padding: 12px 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ===== HEADER / NAVIGATION ===== -->
+    <header id="header">
+        <div class="header-inner">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="mainNav">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#itinerary">Itinerary</a>
+                <a href="../index.html#accommodations">Accommodations</a>
+                <a href="../index.html#faqs">FAQs</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== RSVP ===== -->
+    <section id="rsvp" class="fade-in">
+        <h2 class="section-title">RSVP</h2>
+        <div class="divider"></div>
+        <p class="rsvp-description">
+            Please enter the first and last name of one member of your party below.
+            If you're responding for you and a guest (or your family), you'll be able to
+            RSVP for your entire group on the next page.
+        </p>
+        <form class="rsvp-form" id="rsvpForm">
+            <!-- El atributo 'name' es necesario para guardar los datos correctamente -->
+            <input type="text" name="First Name" id="rsvpFirstName" placeholder="First Name" required>
+            <input type="text" name="Last Name" id="rsvpLastName" placeholder="Last Name" required>
+            <button type="submit" class="btn-primary">SEND</button>
+        </form>
+    </section>
+
+    <!-- Mobile menu script -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mainNav.classList.toggle('open');
+        });
+
+        // Close menu when clicking on a link
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mainNav.classList.remove('open');
+            });
+        });
+
+        // ---- RSVP Form ----
+        const rsvpForm = document.getElementById('rsvpForm');
+        rsvpForm.addEventListener("submit", async function (e) {
+            e.preventDefault();
+            const first = document.getElementById('rsvpFirstName').value.trim();
+            const last = document.getElementById('rsvpLastName').value.trim();
+
+            if (first && last) {
+                const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyCRrNfS42zS24kfHMCkRWRWQYqIjWi2f_rH17u_zyPoiCUgZfFlazlRFn_TnvGHtaT/exec";
+
+                // Cambiar el botón a "Enviando" y deshabilitarlo
+                const submitBtn = rsvpForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+
+                try {
+                    await fetch(GOOGLE_SCRIPT_URL, {
+                        method: 'POST',
+                        body: new FormData(rsvpForm),
+                        // 'no-cors' previene problemas de bloqueos en el navegador con Google Scripts
+                        mode: 'no-cors'
+                    });
+
+                    // Con 'no-cors', la respuesta es "opaca", así que si no hubo error de red, asumimos éxito.
+                    alert(`Thank you, ${first} ${last}! Your RSVP has been received. We look forward to celebrating with you in Tangier! 🇲🇦`);
+                    rsvpForm.reset();
+                } catch (error) {
+                    alert("Error de conexión. Revisa tu internet y vuelve a intentar.");
+                    console.error('Error:', error);
+                } finally {
+                    // Restaurar botón
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }
+            }
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

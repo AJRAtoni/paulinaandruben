@@ -440,6 +440,15 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .hotel-card:hover {
+            background: rgba(255, 255, 255, 0.7);
+            border-color: rgba(92, 23, 69, 0.15);
+            box-shadow: 0 6px 25px rgba(92, 23, 69, 0.06);
+            transform: translateY(-3px);
         }
 
         .hotel-card:hover {
@@ -724,11 +733,11 @@
                 <span></span>
             </button>
             <nav id="mainNav">
-                <a href="#home">Home</a>
-                <a href="#rsvp">RSVP</a>
-                <a href="#itinerary">Itinerary</a>
-                <a href="#accommodations">Accommodations</a>
-                <a href="#faqs">FAQs</a>
+                <a href="index.html#home">Home</a>
+                <a href="rsvp.html">RSVP</a>
+                <a href="index.html#itinerary">Itinerary</a>
+                <a href="index.html#accommodations">Accommodations</a>
+                <a href="index.html#faqs">FAQs</a>
             </nav>
         </div>
     </header>
@@ -749,25 +758,6 @@
 
     <div class="section-divider"></div>
 
-    <!-- ===== RSVP ===== -->
-    <section id="rsvp" class="fade-in">
-        <h2 class="section-title">RSVP</h2>
-        <div class="divider"></div>
-        <p class="rsvp-description">
-            Please enter the first and last name of one member of your party below.
-            If you're responding for you and a guest (or your family), you'll be able to
-            RSVP for your entire group on the next page.
-        </p>
-        <form class="rsvp-form" id="rsvpForm">
-            <!-- El atributo 'name' es necesario para guardar los datos correctamente -->
-            <input type="text" name="First Name" id="rsvpFirstName" placeholder="First Name" required>
-            <input type="text" name="Last Name" id="rsvpLastName" placeholder="Last Name" required>
-            <button type="submit" class="btn-primary">SEND</button>
-        </form>
-    </section>
-
-    <div class="section-divider"></div>
-
     <!-- ===== ITINERARY ===== -->
     <section id="itinerary" class="fade-in">
         <h2 class="section-title">Itinerary</h2>
@@ -783,7 +773,7 @@
                 <div style="margin-bottom: 15px;">
                     <span class="event-tag">Kaftans encouraged!</span>
                 </div>
-                <a href="#rsvp" class="btn-primary">RSVP</a>
+                <a href="rsvp.html" class="btn-primary">RSVP</a>
             </div>
         </div>
 
@@ -857,27 +847,27 @@
         <div class="divider"></div>
 
         <div class="hotels-grid">
-            <div class="hotel-card">
+            <a href="https://www.fairmont.com/en/hotels/tangier/fairmont-tazi-palace-tangier.html" class="hotel-card" target="_blank" rel="noopener noreferrer">
                 <div class="hotel-icon">🏨</div>
                 <div class="hotel-label">Hotel</div>
                 <div class="hotel-name">Fairmont Tazi Palace Tangier</div>
                 <div class="hotel-address">Palais Tazi Ksar Al Mandoub, Jamaa Mokrae, Tangier, 90000, Morocco +212 5 39
                     37 89 89
                 </div>
-            </div>
-            <div class="hotel-card">
+            </a>
+            <a href="https://villamabrouka.com/" class="hotel-card" target="_blank" rel="noopener noreferrer">
                 <div class="hotel-icon">🏨</div>
                 <div class="hotel-label">Hotel</div>
                 <div class="hotel-name">Villa Mabrouka</div>
                 <div class="hotel-address">1 Sidi Bouknadel, Tanger, Tanger-Tétouan-Al Hoceima 90000, Morocco
                     +2120666600488</div>
-            </div>
-            <div class="hotel-card">
+            </a>
+            <a href="https://elminzah.leroyal.com/" class="hotel-card" target="_blank" rel="noopener noreferrer">
                 <div class="hotel-icon">🏨</div>
                 <div class="hotel-label">Hotel</div>
                 <div class="hotel-name">El Minzah Hotel</div>
                 <div class="hotel-address">85, Rue De La Liberte, Tangier, 90000, Morocco (833) 314-8302</div>
-            </div>
+            </a>
         </div>
 
         <div class="travel-planner"
