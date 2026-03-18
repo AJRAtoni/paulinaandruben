@@ -422,6 +422,11 @@ section {
     transform: translateY(-3px);
 }
 
+.hotel-card * {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
 .hotel-icon {
     font-size: 28px;
     margin-bottom: 18px;
