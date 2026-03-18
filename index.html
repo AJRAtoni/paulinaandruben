@@ -602,18 +602,6 @@
             }
         }
 
-        /* Scroll-based fade-in */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(25px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             html {
@@ -747,7 +735,7 @@
     <div class="section-divider"></div>
 
     <!-- ===== ITINERARY ===== -->
-    <section id="itinerary" class="fade-in">
+    <section id="itinerary">
         <h2 class="section-title">Itinerary</h2>
         <div class="divider"></div>
 
@@ -820,7 +808,7 @@
     <div class="section-divider"></div>
 
     <!-- ===== ACCOMMODATIONS ===== -->
-    <section id="accommodations" class="fade-in">
+    <section id="accommodations">
         <h2 class="section-title">Accommodations</h2>
         <div class="divider"></div>
 
@@ -867,7 +855,7 @@
     <div class="section-divider"></div>
 
     <!-- ===== FAQs ===== -->
-    <section id="faqs" class="fade-in">
+    <section id="faqs">
         <h2 class="section-title">FAQs</h2>
         <div class="divider"></div>
 
@@ -1091,41 +1079,43 @@ END:VCALENDAR`;
 
         // ---- RSVP Form ----
         const rsvpForm = document.getElementById('rsvpForm');
-        rsvpForm.addEventListener("submit", async function (e) {
-            e.preventDefault();
-            const first = document.getElementById('rsvpFirstName').value.trim();
-            const last = document.getElementById('rsvpLastName').value.trim();
+        if (rsvpForm) {
+            rsvpForm.addEventListener("submit", async function (e) {
+                e.preventDefault();
+                const first = document.getElementById('rsvpFirstName').value.trim();
+                const last = document.getElementById('rsvpLastName').value.trim();
 
-            if (first && last) {
-                const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyCRrNfS42zS24kfHMCkRWRWQYqIjWi2f_rH17u_zyPoiCUgZfFlazlRFn_TnvGHtaT/exec";
+                if (first && last) {
+                    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyCRrNfS42zS24kfHMCkRWRWQYqIjWi2f_rH17u_zyPoiCUgZfFlazlRFn_TnvGHtaT/exec";
 
-                // Cambiar el botón a "Enviando" y deshabilitarlo
-                const submitBtn = rsvpForm.querySelector('button[type="submit"]');
-                const originalText = submitBtn.textContent;
-                submitBtn.textContent = 'Sending...';
-                submitBtn.disabled = true;
+                    // Cambiar el botón a "Enviando" y deshabilitarlo
+                    const submitBtn = rsvpForm.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Sending...';
+                    submitBtn.disabled = true;
 
-                try {
-                    await fetch(GOOGLE_SCRIPT_URL, {
-                        method: 'POST',
-                        body: new FormData(rsvpForm),
-                        // 'no-cors' previene problemas de bloqueos en el navegador con Google Scripts
-                        mode: 'no-cors'
-                    });
+                    try {
+                        await fetch(GOOGLE_SCRIPT_URL, {
+                            method: 'POST',
+                            body: new FormData(rsvpForm),
+                            // 'no-cors' previene problemas de bloqueos en el navegador con Google Scripts
+                            mode: 'no-cors'
+                        });
 
-                    // Con 'no-cors', la respuesta es "opaca", así que si no hubo error de red, asumimos éxito.
-                    alert(`Thank you, ${first} ${last}! Your RSVP has been received. We look forward to celebrating with you in Tangier! 🇲🇦`);
-                    rsvpForm.reset();
-                } catch (error) {
-                    alert("Error de conexión. Revisa tu internet y vuelve a intentar.");
-                    console.error('Error:', error);
-                } finally {
-                    // Restaurar botón
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
+                        // Con 'no-cors', la respuesta es "opaca", así que si no hubo error de red, asumimos éxito.
+                        alert(`Thank you, ${first} ${last}! Your RSVP has been received. We look forward to celebrating with you in Tangier! 🇲🇦`);
+                        rsvpForm.reset();
+                    } catch (error) {
+                        alert("Error de conexión. Revisa tu internet y vuelve a intentar.");
+                        console.error('Error:', error);
+                    } finally {
+                        // Restaurar botón
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                    }
                 }
-            }
-        });
+            });
+        }
 
         // ---- FAQ Accordion ----
         function toggleFaq(id) {
@@ -1184,18 +1174,6 @@ END:VCALENDAR`;
                 }
             });
         });
-
-        // ---- Scroll Fade-In ----
-        const fadeEls = document.querySelectorAll('.fade-in');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        fadeEls.forEach(el => observer.observe(el));
 
         // ---- Init ----
         window.addEventListener('load', updateCountdown);
