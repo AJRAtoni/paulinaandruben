@@ -1219,6 +1219,16 @@ END:VCALENDAR`;
 
         fadeEls.forEach(el => observer.observe(el));
 
+        // Force visible sections that are in viewport on load
+        setTimeout(() => {
+            fadeEls.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    el.classList.add('visible');
+                }
+            });
+        }, 100);
+
         // ---- Init ----
         window.addEventListener('load', updateCountdown);
     </script>
