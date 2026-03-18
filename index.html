@@ -183,7 +183,7 @@
         }
 
         .monogram img {
-            width: 140px;
+            width: 180px;
             height: auto;
             max-width: 100%;
             filter: drop-shadow(0 2px 8px rgba(92, 23, 69, 0.08));
@@ -196,7 +196,7 @@
             color: rgb(92, 23, 69);
             padding: 15px 20px 20px;
             margin-bottom: 45px;
-            line-height: 3;
+            line-height: 4;
             letter-spacing: 1px;
             overflow: visible;
             -webkit-text-size-adjust: 100%;
@@ -674,7 +674,7 @@
             }
 
             .monogram img {
-                width: 100px;
+                width: 140px;
             }
 
 
@@ -775,15 +775,12 @@
             <div class="day-date">Friday, June 5, 2026</div>
             <div class="event-card">
                 <div class="event-name">Welcome to Morocco</div>
-                <div class="event-time">6:30 PM — 11:45 PM</div>
-                <p class="event-note">Please join us in the Welcome to Morocco dinner where you can expect typical food
-                    and entertainment in the center of the Casbah.</p>
+                <div class="event-time">6:30 PM</div>
+                <p class="event-note">Join us for a welcome party in the heart of the Casbah.</p>
                 <div style="margin-bottom: 15px;">
                     <span class="event-tag">Kaftans encouraged!</span>
                 </div>
-                <a href="#" class="btn-calendar"
-                    onclick="downloadICS('Welcome to Morocco', 'Welcome to Morocco dinner where you can expect typical food and entertainment in the center of the Casbah.', 'Casbah, Tangier', '20260605T183000', '20260605T234500'); return false;">Add
-                    to calendar</a>
+                <a href="#rsvp" class="btn-primary">RSVP</a>
             </div>
         </div>
 
@@ -795,10 +792,11 @@
                 <div class="event-name">Villa Josephine Brunch</div>
                 <div class="event-time">12:00 PM — 3:00 PM</div>
                 <div class="event-location">Villa Josephine Hotel</div>
+                <p class="event-note">Come see the beautiful and historic Villa Josephine and enjoy brunch by the pool as you recharge and prepare for the main event.</p>
                 <a href="https://www.google.com/maps/search/?api=1&query=42.30206470,-70.90783460&query_place_id=ChIJcc-mjOFl44kRu7ipItTGkxY"
                     class="btn-calendar">Map</a>
                 <a href="#" class="btn-calendar"
-                    onclick="downloadICS('Villa Josephine Brunch', '', 'Villa Josephine Hotel, Tangier', '20260606T120000', '20260606T150000'); return false;">Add
+                    onclick="downloadICS('Villa Josephine Brunch', 'Come see the beautiful and historic Villa Josephine and enjoy brunch by the pool as you recharge and prepare for the main event.', 'Villa Josephine Hotel, Tangier', '20260606T120000', '20260606T150000'); return false;">Add
                     to calendar</a>
             </div>
 
@@ -815,12 +813,15 @@
 
             <div class="event-card">
                 <div class="event-name">Reception by the Water</div>
-                <div class="event-time">6:00 PM — 11:45 PM</div>
+                <div class="event-time">6:00 PM</div>
                 <div class="event-location">Rue Sidi Mesmoudi</div>
+                <div style="margin-bottom: 15px;">
+                    <span class="event-tag">Formal - Tangier Chic</span>
+                </div>
                 <a href="https://www.google.com/maps/search/?api=1&query=42.30206470,-70.90783460&query_place_id=ChIJcc-mjOFl44kRu7ipItTGkxY"
                     class="btn-calendar">Map</a>
                 <a href="#" class="btn-calendar"
-                    onclick="downloadICS('Reception by the Water', '', 'Rue Sidi Mesmoudi, Tangier', '20260606T180000', '20260606T234500'); return false;">Add
+                    onclick="downloadICS('Reception by the Water', 'Formal - Tangier Chic', 'Rue Sidi Mesmoudi, Tangier', '20260606T180000', '20260606T234500'); return false;">Add
                     to calendar</a>
             </div>
         </div>
