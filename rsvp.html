@@ -11,3 +11,113 @@
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- ===== HEADER / NAVIGATION ===== -->
+    <header id="header">
+        <div class="header-inner">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="mainNav">
+                <a href="index.html#home">Home</a>
+                <a href="rsvp.html">RSVP</a>
+                <a href="index.html#itinerary">Itinerary</a>
+                <a href="index.html#accommodations">Accommodations</a>
+                <a href="index.html#faqs">FAQs</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== RSVP ===== -->
+    <section id="rsvp">
+        <h2 class="section-title">RSVP</h2>
+        <div class="divider"></div>
+        <p class="rsvp-description">
+            Please enter the first and last name of one member of your party below.
+            If you're responding for you and a guest (or your family), you'll be able to
+            RSVP for your entire group on the next page.
+        </p>
+        <form class="rsvp-form" id="rsvpForm">
+            <!-- Campo oculto para almacenar el evento de origen -->
+            <input type="hidden" name="Event" id="eventInput">
+            <input type="text" name="First Name" id="rsvpFirstName" placeholder="First Name" required>
+            <input type="text" name="Last Name" id="rsvpLastName" placeholder="Last Name" required>
+            <button type="submit" class="btn-primary">SEND</button>
+        </form>
+    </section>
+
+    <script>
+        // Capturar el parámetro 'event' de la URL y establecerlo en el formulario
+        const urlParams = new URLSearchParams(window.location.search);
+        const eventParam = urlParams.get('event');
+        if (eventParam) {
+            document.getElementById('eventInput').value = eventParam;
+        }
+
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mainNav.classList.toggle('open');
+        });
+
+        // Close menu when clicking on a link
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mainNav.classList.remove('open');
+            });
+        });
+
+        // ---- RSVP Form ----
+        const rsvpForm = document.getElementById('rsvpForm');
+        rsvpForm.addEventListener("submit", async function (e) {
+            e.preventDefault();
+            const first = document.getElementById('rsvpFirstName').value.trim();
+            const last = document.getElementById('rsvpLastName').value.trim();
+
+            if (first && last) {
+                const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyCRrNfS42zS24kfHMCkRWRWQYqIjWi2f_rH17u_zyPoiCUgZfFlazlRFn_TnvGHtaT/exec";
+
+                // Cambiar el botón a "Enviando" y deshabilitarlo
+                const submitBtn = rsvpForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+
+                try {
+                    await fetch(GOOGLE_SCRIPT_URL, {
+                        method: 'POST',
+                        body: new FormData(rsvpForm),
+                        mode: 'no-cors'
+                    });
+
+                    alert(`Thank you, ${first} ${last}! Your RSVP has been received. We look forward to celebrating with you in Tangier! 🇲🇦`);
+                    rsvpForm.reset();
+                } catch (error) {
+                    alert("Error de conexión. Revisa tu internet y vuelve a intentar.");
+                    console.error('Error:', error);
+                } finally {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }
+            }
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
