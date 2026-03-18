@@ -1113,41 +1113,43 @@ END:VCALENDAR`;
 
         // ---- RSVP Form ----
         const rsvpForm = document.getElementById('rsvpForm');
-        rsvpForm.addEventListener("submit", async function (e) {
-            e.preventDefault();
-            const first = document.getElementById('rsvpFirstName').value.trim();
-            const last = document.getElementById('rsvpLastName').value.trim();
+        if (rsvpForm) {
+            rsvpForm.addEventListener("submit", async function (e) {
+                e.preventDefault();
+                const first = document.getElementById('rsvpFirstName').value.trim();
+                const last = document.getElementById('rsvpLastName').value.trim();
 
-            if (first && last) {
-                const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyCRrNfS42zS24kfHMCkRWRWQYqIjWi2f_rH17u_zyPoiCUgZfFlazlRFn_TnvGHtaT/exec";
+                if (first && last) {
+                    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyCRrNfS42zS24kfHMCkRWRWQYqIjWi2f_rH17u_zyPoiCUgZfFlazlRFn_TnvGHtaT/exec";
 
-                // Cambiar el botón a "Enviando" y deshabilitarlo
-                const submitBtn = rsvpForm.querySelector('button[type="submit"]');
-                const originalText = submitBtn.textContent;
-                submitBtn.textContent = 'Sending...';
-                submitBtn.disabled = true;
+                    // Cambiar el botón a "Enviando" y deshabilitarlo
+                    const submitBtn = rsvpForm.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Sending...';
+                    submitBtn.disabled = true;
 
-                try {
-                    await fetch(GOOGLE_SCRIPT_URL, {
-                        method: 'POST',
-                        body: new FormData(rsvpForm),
-                        // 'no-cors' previene problemas de bloqueos en el navegador con Google Scripts
-                        mode: 'no-cors'
-                    });
+                    try {
+                        await fetch(GOOGLE_SCRIPT_URL, {
+                            method: 'POST',
+                            body: new FormData(rsvpForm),
+                            // 'no-cors' previene problemas de bloqueos en el navegador con Google Scripts
+                            mode: 'no-cors'
+                        });
 
-                    // Con 'no-cors', la respuesta es "opaca", así que si no hubo error de red, asumimos éxito.
-                    alert(`Thank you, ${first} ${last}! Your RSVP has been received. We look forward to celebrating with you in Tangier! 🇲🇦`);
-                    rsvpForm.reset();
-                } catch (error) {
-                    alert("Error de conexión. Revisa tu internet y vuelve a intentar.");
-                    console.error('Error:', error);
-                } finally {
-                    // Restaurar botón
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
+                        // Con 'no-cors', la respuesta es "opaca", así que si no hubo error de red, asumimos éxito.
+                        alert(`Thank you, ${first} ${last}! Your RSVP has been received. We look forward to celebrating with you in Tangier! 🇲🇦`);
+                        rsvpForm.reset();
+                    } catch (error) {
+                        alert("Error de conexión. Revisa tu internet y vuelve a intentar.");
+                        console.error('Error:', error);
+                    } finally {
+                        // Restaurar botón
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                    }
                 }
-            }
-        });
+            });
+        }
 
         // ---- FAQ Accordion ----
         function toggleFaq(id) {
