@@ -134,6 +134,11 @@
         }
 
         @media (max-width: 600px) {
+            .header-inner {
+                padding: 12px 20px;
+                justify-content: flex-end;
+            }
+
             .menu-toggle {
                 display: block;
                 position: absolute;
@@ -293,17 +298,29 @@
             box-shadow: 0 4px 15px rgba(92, 23, 69, 0.2);
         }
 
-        /* ===== SECTION TITLES ===== */
+        /* ===== SECTION BASE ===== */
+        section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
         .section-title {
-            font-family: 'Lovers in New York', cursive;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 42px;
-            font-weight: 400;
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            text-align: center;
             color: rgb(92, 23, 69);
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-            line-height: 1.2;
-            overflow: visible;
-            transform: translateZ(0);
+        }
+
+        .divider {
+            width: 60px;
+            height: 1px;
+            background-color: rgba(92, 23, 69, 0.3);
+            margin: 0 auto 50px;
         }
 
         .divider {
