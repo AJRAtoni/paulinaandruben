@@ -653,6 +653,7 @@ section {
 
     .hero-date {
         font-size: 26px;
+        line-height: 2.5;
     }
 
     .hero-location {
