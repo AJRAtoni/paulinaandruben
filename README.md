@@ -29,25 +29,6 @@ El sitio está desplegado y disponible en: [https://paulinaandruben.github.io](h
 - CSS3
 - JavaScript (vanilla)
 
----
-
-## 🚀 Desarrollo Local
-
-Para ver el sitio localmente:
-
-1. Clona el repositorio:
-```bash
-git clone https://github.com/paulinaandruben/paulinaandruben.github.io.git
-```
-
-2. Abre `index.html` en tu navegador preferido.
-
-3. Para hacer cambios, edita los archivos:
-   - `index.html` - contenido principal
-   - `styles.css` - estilos
-   - (el CSS está embebido en `index.html` para este proyecto)
-
----
 
 ## 📝 Características
 
@@ -67,4 +48,4 @@ Este proyecto es de uso privado para la boda de Paulina y Ruben.
 
 ---
 
-**Hecho con ❤️ para celebrar nuestro día especial**
+**Hecho con ❤️ por Miko Studios.**
