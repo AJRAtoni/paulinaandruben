@@ -9,7 +9,7 @@ Sitio web oficial para la boda de Paulina Cuevas y Ruben Moreno.
 
 ## 🌍 Ver el sitio
 
-El sitio está desplegado y disponible en: [https://paulinaandruben.github.io](https://paulinaandruben.github.io)
+El sitio está desplegado y disponible en: [https://paulinaandruben.com](https://paulinaandruben.com)
 
 ---
 
