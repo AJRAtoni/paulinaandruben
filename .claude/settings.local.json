@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git checkout:*)",
+      "Bash(git reset:*)",
+      "Bash(git pull:*)",
+      "Bash(git rebase:*)",
+      "Bash(git merge:*)",
+      "Bash(sed -i '' '/Welcome to Morocco/s|onclick=\"\"\"\"downloadICS\\('\"''''\"'Welcome to Morocco'\"''''\"', .*\\)')",
+      "Bash(return false:*)",
+      "Bash(\"|href=\"rsvp.html?event=welcome_dinner\" class=\"btn-primary)",
+      "Bash(\")",
+      "Bash(' index.html)",
+      "Bash(ed:*)",
+      "Bash(sed -i '' 's/ id=\"\"itinerary\"\" class=\"\"fade-in\"\"/ id=\"\"itinerary\"\"/' index.html)",
+      "Bash(sed -i '' 's/ id=\"\"accommodations\"\" class=\"\"fade-in\"\"/ id=\"\"accommodations\"\"/' index.html)",
+      "Bash(sed -i '' 's/ id=\"\"faqs\"\" class=\"\"fade-in\"\"/ id=\"\"faqs\"\"/' index.html)"
+    ]
+  }
+}
